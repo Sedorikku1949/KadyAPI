@@ -4,30 +4,9 @@ const ejs = require("ejs");
 
 class WebSite {
   constructor(){
+    const that = this;
     this.server = http.createServer(function (req, res) {
-      console.log(`[WebSite] ${req.method} ${req.url}`);
-      console.log(req.url);
-      console.log(req.method);
-      /**
-       * res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({
-        data: 'Hello World!'
-      }));
-       */
-
-      // send a ejs file
-      if (req.url == "/") {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(ejs.render(`<!DOCTYPE html>
-        <html>
-        <head>
-          <title>Hello World</title>
-        </head>
-        <body>
-          <h1>Hello World!</h1>
-        </body>
-        </html>`));
-      }
+      that.RoutesManager.execute(req, res);
     });
 
     this._start();
@@ -35,7 +14,7 @@ class WebSite {
 
   _start(){
     this.server.listen(port, () => {
-      console.log(`[WebSite] Server started on port ${port} at http://localhost:${port}`);
+      console.log(`[ \x1b[1;32mWebSite\x1b[0m ] Server started on port ${port} at http://localhost:${port}`);
     });
   }
 }

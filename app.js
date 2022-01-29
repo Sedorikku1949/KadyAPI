@@ -1,6 +1,5 @@
 global["client"] = {}
-const { readdirSync } = require("fs");
-const { getAllFiles } = require("./utils.js");
+const { getAllFiles } = require("./API/utils.js");
 
 global["database"] = {
   users: new Map(),
@@ -9,6 +8,8 @@ global["database"] = {
   views: getAllFiles("views", null, ["ejs"]),
   routes: getAllFiles("routes", null, ["js"]),
 }
+
+database.web.RoutesManager = new (require("./API/RoutesManager"))();
 
 process.stdin.resume();
 process.stdin.on("data", function(data){

@@ -1,4 +1,5 @@
 const uuid = require("uuid");
+const { readdirSync } = require("fs");
 
 function newUserId(){
   const idList = [...[...global["database"].users].map(user => user[0])];
@@ -8,6 +9,10 @@ function newUserId(){
 };
 
 module.exports = {
+  getObjPath: function getObjPath(str){
+    if (typeof str !== "string") return null;
+    return str.match(/(?:\[(?:"|'|`))?(\w|\-|\/)+(?:(?:"|'|`)\])?/gm).map(e => e.match(/\[.+\]/g) ? e.slice(2, e.length-2) : e );
+  },
   getAllFiles: function getAllFiles(dir, callback = null, fileExtension = ["js"]){
     if (typeof dir !== "string" || dir.match(/(?:\.(?:.+)+)+$/)) throw new Error("dir must be a string and a path to a folder");
     let fileList = [];
