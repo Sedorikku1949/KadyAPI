@@ -1,0 +1,16 @@
+{
+  "name": "kadyapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "starter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "uuid": "^8.3.2",
+    "ws": "^8.4.2"
+  }
+}
