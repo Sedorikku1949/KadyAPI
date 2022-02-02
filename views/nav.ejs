@@ -1,10 +1,13 @@
 <div id="navbar-section" class="navbar-inactive">
   <div id="navbar-container">
     <img onclick="openNavBar()" class="navbar-logo" src="/cdn/img/nav.png" draggable="false" />
-    <div id="navbar-container-logo-next">
+    <div class="navbar-container-logo-next">
       <a href="/invite" target="_blank" class="navbar-invite-button">Invitez moi !</a>
-      <img src="/cdn/img/avatar.jpg" draggable="false" />
-      <h2>Kady</h2>
+      <div class="navbar-container-logo-next">
+        <a class="next-logo-content" href="/">Home</a>
+        <a class="next-logo-content" href="/about">Commandes</a>
+        <a class="next-logo-content" href="/news">Actualité</a>
+      </div>
     </div>
     <div id="navbar-container-right">
       <a href="/"><%= logged ? "Mon profile" : "Se connecter"%></a>
@@ -21,11 +24,12 @@
         <a href="/commands">Commandes</a>
         <a href="/devs">Qui nous sommes</a>
         <a href="/about">A propos</a>
+        <a href="/news">Actualité</a>
       </div>
       <div id="navbar-content-right">
         <div id="navbar-services-box" class="navbar-content-right-box">
           <div class="navbar-subtitle">
-            <img src="/cdn/img/arrowRight.png" />
+            <img src="/cdn/img/arrowRight.png" draggable="false" />
             <h4>Fonctionnalitées</h4>
           </div>
           <a href="/">Logs</a>
@@ -33,7 +37,7 @@
         </div>
         <div id="navbar-partners-box" class="navbar-content-right-box">
           <div class="navbar-subtitle">
-            <img src="/cdn/img/arrowRight.png" />
+            <img src="/cdn/img/arrowRight.png" draggable="false" />
             <h4>Partenaires</h4>
           </div>
           <a href="/" target="_blank">Maggot</a>
@@ -43,7 +47,7 @@
         </div>
         <div id="navbar-community-box" class="navbar-content-right-box">
           <div class="navbar-subtitle">
-            <img src="/cdn/img/arrowRight.png" />
+            <img src="/cdn/img/arrowRight.png" draggable="false" />
             <h4>Nous contacter</h4>
           </div>
           <a href="https://discord.gg/GegJXchAfN" target="_blank">Discord</a>

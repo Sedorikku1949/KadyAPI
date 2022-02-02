@@ -145,6 +145,13 @@ main {
   width: auto;
 }
 
+#navbar-section img.navbar-logo:last-child {
+  user-select: none;
+  margin-left: 19px;
+  height: 38px;
+  width: auto;
+}
+
 #navbar-section img.navbar-logo:hover {
   transform: scale(1.1);
   transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, padding 0.25s ease-in-out;
@@ -207,10 +214,10 @@ main {
 
 #navbar-content #navbar-close {
   position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 30px;
-  height: 30px;
+  top: 35px;
+  left: 25px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out, padding 0.25s ease-in-out;
 }
@@ -297,19 +304,26 @@ main {
 
 
 
-#navbar-container-logo-next {
+.navbar-container-logo-next {
   margin-left: 10px;
   display: flex;
   align-items: center;
 }
 
-#navbar-container-logo-next img {
-  width: 50px;
-  height: 50px;
-  margin-right: 20px;
-  border-radius: 10px;
+.navbar-container-logo-next .next-logo-content {
+  text-decoration: none;
+  color: var(--font-color-dark);
+  font-size: 20px;
+  margin-left: 30px;
+  font-weight: 600;
 }
 
+
+.navbar-container-logo-next:last-child {
+  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 
 
 #navbar-container-right {
