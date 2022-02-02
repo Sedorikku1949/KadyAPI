@@ -8,7 +8,10 @@ module.exports = {
       // EXECUTABLE
       res.statusCode = 200;
       res.end(render(readFileSync(this.viewPath, "utf8"), {
-          hello: true
+          hello: true,
+          footer: readFileSync("views/footer.html", "utf8"),
+          header: readFileSync("views/head.html", "utf8"),
+          navbar: render(readFileSync("views/nav.ejs", "utf8"), { logged: false }),
         }
       ));
     }
