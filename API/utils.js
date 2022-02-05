@@ -1,5 +1,5 @@
 const uuid = require("uuid");
-const { readdirSync } = require("fs");
+const { readdirSync, readFileSync } = require("fs");
 
 function newUserId(){
   const idList = [...[...global["database"].users].map(user => user[0])];
@@ -9,6 +9,14 @@ function newUserId(){
 };
 
 module.exports = {
+  error404: function(req, res){
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "text/html");
+    res.end(readFileSync("views/code/404.html", "utf8"));
+  },
+  getUrlPath: function getUrlPath(url){
+    return url.replace(/((?:(?:\/[a-zA-Z0-9]+\/?)+)|\/)\??(?:(?:&?[a-zA-Z0-9_]+=[^&\s]+)+)?$/, "$1");
+  },
   getObjPath: function getObjPath(str){
     if (typeof str !== "string") return null;
     return str.match(/(?:\[(?:"|'|`))?(\w|\-|\/)+(?:(?:"|'|`)\])?/gm).map(e => e.match(/\[.+\]/g) ? e.slice(2, e.length-2) : e );

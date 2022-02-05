@@ -7,10 +7,20 @@ global["database"] = {
   web: new (require("./API/web"))(),
   views: getAllFiles("views", null, ["ejs"]),
   routes: getAllFiles("routes", null, ["js"]),
+  localDB: new (require("enmap"))({ dataDir: "./database/local", name: "LocalDatabase"})
 }
 
 database.web.RoutesManager = new (require("./API/RoutesManager"))();
 
+
+
+
+
+
+
+
+
+/* IN APP EVAL */
 process.stdin.resume();
 process.stdin.on("data", function(data){
     data = data.toString().trim()

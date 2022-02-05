@@ -18,7 +18,7 @@ module.exports = {
       ));
     }
   },
-  url: "/",
+  url: "/devs",
   method: "GET",
-  viewPath: "views/mainPages/main.ejs"
+  viewPath: "views/mainPages/dev.ejs"
 }

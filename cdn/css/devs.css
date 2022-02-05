@@ -1,0 +1,119 @@
+main {
+  width: 100%;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* MAIN CONTAINER */
+
+#main-container {
+  margin: 30px auto 10px auto;
+  padding: 30px;
+  width: 85%;
+  background-color: var(--second-color);
+  border-radius: 5px;
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#main-container h1 {
+  color: var(--font-color-light-dark);
+  margin: 30px;
+  margin-top: 10px;
+}
+
+#main-container p {
+  color: var(--font-color-lighter-dark);
+  line-height: 25px;
+  margin: 10px;
+}
+
+#main-container h2 {
+  padding-top: 20px;
+  color: var(--font-color);
+}
+
+/* CONTAINERS */
+
+.container {
+  display: inline-block;
+  background-color: var(--second-color);
+  border-radius: 5px;
+  margin: 30px auto 30px auto;
+  width: 80%;
+  min-width: 700px;
+  min-height: 200px;
+  padding: 35px;
+}
+
+.container h2 {
+  float: left;
+  margin-right: 50%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.container .container-desc {
+  float: left;
+  text-align: left;
+  width: 97%;
+  margin-left: 10px;
+  color: var(--font-color-light-dark);
+  font-weight: 550;
+}
+
+.container .container-box {
+  display: -webkit-box;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  background-color: var(--third-color);
+  width: 100%;
+  padding: 10px;
+}
+
+.container .container-box-content {
+  margin-right: 14px;
+  height: 415px;
+  width: 325px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--fourth-color);
+  flex-shrink: 1;
+}
+
+.team-avatar {
+  margin-top: 10px;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  border: 5px solid var(--main-color-dark)
+}
+
+.container-items img, .container-items svg {
+  margin: 5px;
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  fill: #000;
+  border-radius: 3px;
+  background-color: transparent;
+  transition:  0.1s background-color ease, 0.25s fill ease;
+}
+
+.container-items svg:hover {
+  cursor: pointer;
+  fill: var(--main-theme-darker);
+  background-color: var(--third-color);
+  transition:  0.1s background-color ease, 0.25s fill ease;
+}
+
+h3#thanks {
+  text-align: center;
+  width: 60%;
+  margin: 100px auto;
+}

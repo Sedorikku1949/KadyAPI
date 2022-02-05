@@ -1,0 +1,102 @@
+main {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 135px;
+}
+
+h1 {
+  padding: 10px;
+  margin: 30px auto 45px auto;
+  margin-top: 30px;
+}
+
+/* BOX CONTAINER */
+
+.box {
+  height: 256px;
+  width: 80%;
+  padding: 20px;
+  margin: 10px auto;
+  background-color: var(--second-color);
+  border-radius: 5px;
+  display: flex;
+}
+
+.box:last-child {
+  margin-bottom: 50px;
+}
+
+.box .box-logo {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box .box-logo svg {
+  margin: auto;
+  padding: 2px 2px 0px 15px;
+  background-color: var(--third-color);
+  border-radius: 5px;
+}
+
+.box .box-body {
+  height: 80%;
+  width: 75%;
+  padding: 30px;
+}
+
+.box .box-body a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.box .box-body h2 {
+  margin: auto;
+  margin-top: 10px;
+  font-weight: 700;
+  width: 100%;
+  font-size: 30px;
+}
+
+.box .box-body p {
+  margin: auto;
+  margin: 20px auto;
+  width: 70%;
+  font-weight: 600;
+  color: var(--font-color-light-dark);
+}
+
+.box .box-body .box-button {
+  padding: 7px 15px 7px 15px;
+  border-radius: 5px;
+  margin: 30px auto;
+  max-width: 400px;
+  max-height: 70px;
+  background-color: var(--main-theme-dark);
+  transition: 0.25s all ease;
+}
+
+.box .box-body .box-button:hover {
+  background-color: var(--main-theme-light);
+  transition: 0.25s all ease;
+}
+
+.box .box-body .box-button:hover button {
+  color: var(--font-color-darker);
+  transition: 0.15s all ease;
+}
+
+.box .box-body .box-button button {
+  background-color: transparent;
+  border: none;
+  color: var(--font-color);
+  font-size: 18px;
+  font-weight: 550;
+  padding: 7px;
+  margin: 7px;
+  transition: 0.15s all ease;
+}

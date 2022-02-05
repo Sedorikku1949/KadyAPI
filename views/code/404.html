@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oups...</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/cdn/css/all.css" />
+    <style>
+      body {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;     
+        display: flex;
+      }
+
+      #container {
+        width: 85%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 100px;
+        padding: 25px;
+      }
+
+      h3 {
+        line-height: 50px;
+      }
+
+      a {
+        color: var(--main-theme);
+        text-decoration: none;
+        font-size: 20px;
+        transition: color 0.25s ease;
+      }
+
+      a:hover {
+        color: var(--main-theme-dark);
+        transition: color 0.25s ease;
+      }
+
+      img {
+        position: absolute;
+        top: 49%;
+        height: auto;
+        width: 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Oups, tu ne devrais pas être dans cet endroit vide...</h1>
+      <h3>Et si on revenait à la page principale ?</h3>
+      <a href="/">Revenir à la page d'accueil</a>
+    </div>
+    <img src="/cdn/img/404.png" draggable="false" />
+  </body>
+</html>

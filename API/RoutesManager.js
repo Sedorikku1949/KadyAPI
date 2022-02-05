@@ -1,4 +1,4 @@
-const { getAllFiles, getObjPath } = require("./utils.js");
+const { getAllFiles, getObjPath, error404 } = require("./utils.js");
 const { readFile, existsSync } = require("fs");
 const type = require("../allTypes.json");
 
@@ -12,13 +12,11 @@ class RouteManager {
     if (!req || !res) throw new Error("req and res are required");
     const { url } = req;
     if (!url || res.writableEnded) return;
-    if (url.match(/^\/cdn/)) {
+    if (url.match(/^\/cdn\//)) {
       try {
         readFile(url.slice(1), function(err, data){
-          if (err) {
-            res.statusCode = 404;
-            res.end("404 Not Found");
-          } else {
+          if (err) return error404(req, res);
+          else {
             const contentType = (Object.entries(type).map(t => t[1].includes(url.match(/\.([A-Za-z0-9\.]+)$/gm)?.[0]?.slice(1)) ? t[0] : false).filter(Boolean)[0] ?? "text/plain")
             res.setHeader("Content-Type", contentType)
             res.writeHead(200);
@@ -27,16 +25,12 @@ class RouteManager {
         });
       } catch(err) {
         console.log(err)
-        res.statusCode = 404;
-        res.end("404 Not Found");
+        return error404(req, res);
       }
     } else {
       const route = this.getRoute(url);
-      if (!route) {
-        if (res.writableEnded) return;
-        res.statusCode = 404;
-        res.end("404 Not Found");
-      } else {
+      if (!route) return error404(req, res);
+      else {
         try {
           const contentType = (Object.entries(type).map(t => t[1].includes(url.match(/\.([A-Za-z0-9\.]+)$/gm)?.[0]?.slice(1)) ? t[0] : false).filter(Boolean)[0] ?? "text/html")
           res.setHeader("Content-Type", contentType)
@@ -66,7 +60,7 @@ class RouteManager {
   }
 
   getRoute(urlPath){
-    return this.routes.find((route) => route.url == urlPath);
+    return this.routes.find(({ url }) => urlPath.replace(/((?:(?:\/[a-zA-Z0-9]+\/?)+)|\/)\??(?:(?:&?[a-zA-Z0-9_]+=[^&\s]+)+)?$/, "$1") == url);
   }
 }
 
