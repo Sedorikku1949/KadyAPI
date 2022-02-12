@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Commandes</title>
+    <link rel="stylesheet" href="/cdn/css/commands.css" />
+    <script src="/cdn/js/commands.js"></script>
+    <!-- PUBLIC HEADER -->
+    <%- header %>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <div id="explorer">
+          <h2>Catégories :</h2>
+          <% categorys.map(function(category) { %>
+            <h5 id="<%= category.defaultName %>" class="ctg-name <%= category.defaultName == "info" ? "ctg-selected":""%> <%= allCommmands.filter((cmd) => category.defaultName == cmd.category).length < 1 ? "ctg-none" : "" %> " onclick='setCtg("<%= allCommmands.filter((cmd) => category.defaultName == cmd.category).length < 1 ? "" : category.defaultName %>", false, null)' ><%= category.name %></h5>
+          <% }) %>
+        </div>
+        <div id="container-content">
+          <div id="ctg-selected-body">
+            <p><%= commands.length %> commande(s)</p>
+            <h4><%= categorys.find((e) => e.name.toLowerCase().match(ctg)).name %></h4>
+          </div>
+          <div id="commands-body">
+            <div class="commands-head">
+              <div class="name">Nom</div>
+              <div class="description">Description</div>
+              <div class="alias">Alias</div>
+              <div class="example">Example</div>
+            </div>
+            <div id="command-list">
+              <!-- start command list -->
+
+              <% commands.map(element => { %>
+                <li class="commands-line">
+                  <div class="name"><%= element.name %></div>
+                  <div class="description"><%= element.desc.trim().replace(/\s+(!|\?|\))$/, "$1") %></div>
+                  <div class="alias"><%= element.aliase.length > 0 ?  element.aliase.join(" - ") : "Aucun aliase." %></div>
+                  <div class="example"><%= element.use %></div>
+                </li>
+              <% }); %>
+
+              <!-- end command list -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="help-last">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg>
+        <p>Certaines catégories ne sont pas disponibles car elles ne possèdent aucune commande pour le moment.</p>
+      </div>
+    </main>
+    <footer>
+      <%- footer %>
+    </footer>
+    <%- navbar %>
+    <script>
+      const Wss = new WebSocket(`ws://${document.location.host.replace(/[0-9]+$/, "")}<%= wsUrl %>`);
+      Wss.onmessage = (rawData) => {
+        const data = JSON.parse(rawData.data);
+        if (data["@type"] == "COMMANDS_GET") {
+          setCtg(data["ctg"], true, data);
+        }
+      };
+      Wss.onerror = (err) => console.error(err);
+    </script>
+  </body>
+</html>

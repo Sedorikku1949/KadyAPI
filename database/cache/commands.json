@@ -1,0 +1,880 @@
+[
+  {
+    "name": "config",
+    "aliase": [],
+    "category": "config",
+    "defer": false,
+    "options": [
+      {
+        "name": "prefix",
+        "description": "Changez mon prefix.",
+        "type": 3,
+        "required": false
+      },
+      {
+        "name": "nickname",
+        "description": "Changez mon surnom.",
+        "type": 3,
+        "required": false
+      },
+      {
+        "name": "ignoredchannel",
+        "description": "Parametré les salons ignorés.",
+        "type": 7,
+        "required": false
+      },
+      {
+        "name": "ignoredrole",
+        "description": "Parametré les rôles ignorés.",
+        "type": 8,
+        "required": false
+      },
+      {
+        "name": "staffrole",
+        "description": "Parametré les rôles considérés comme modérateur.",
+        "type": 8,
+        "required": false
+      },
+      {
+        "name": "dashboardaccess",
+        "description": "Parametré les rôles ayant accès au dashboard.",
+        "type": 7,
+        "required": false
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": true,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/config/config.js",
+    "desc": "Cette commande te permet de modifier les paramètres du serveurs.",
+    "use": "=config [prefix <prefix>] [lang <lang name>] [nickname <surnom>]"
+  },
+  {
+    "name": "dashboardaccess",
+    "aliase": [],
+    "category": "config",
+    "defer": false,
+    "options": [
+      {
+        "name": "add",
+        "description": "Ajouté un role ayant accès au dashboard.",
+        "type": 8,
+        "required": false
+      },
+      {
+        "name": "remove",
+        "description": "Retiré un role ayant accès au dashboard de la liste.",
+        "type": 8,
+        "required": false
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": true,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/config/dashboardaccess.js",
+    "desc": "Cette commande te permet de gérer les rôles ayant accès au dashboard.",
+    "use": "$staffrole add <channel>\n$staffrole remove <channel>\n$staffrole list"
+  },
+  {
+    "name": "ignoredchannel",
+    "aliase": [],
+    "category": "config",
+    "defer": false,
+    "options": [
+      {
+        "name": "add",
+        "description": "Ajouté un salon ignoré à la liste.",
+        "type": 7,
+        "required": false
+      },
+      {
+        "name": "remove",
+        "description": "Retiré un salon ignoré de la liste.",
+        "type": 7,
+        "required": false
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": true,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/config/ignoredchannel.js",
+    "desc": "Cette commande te permet de gérer les salons que je dois ignorer.",
+    "use": "=ignoredchannel add <channel>\n=ignoredchannel remove <channel>\n=ignoredchannel list"
+  },
+  {
+    "name": "ignoredrole",
+    "aliase": [],
+    "category": "config",
+    "defer": false,
+    "options": [
+      {
+        "name": "add",
+        "description": "Ajouté un role à ignoré.",
+        "type": 8,
+        "required": false
+      },
+      {
+        "name": "remove",
+        "description": "Retiré un role ignoré de la liste.",
+        "type": 8,
+        "required": false
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": true,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/config/ignoredrole.js",
+    "desc": "Cette commande te permet de gérer les rôles que je dois ignorer.",
+    "use": "$ignoredrole add <channel>\n$ignoredrole remove <channel>\n$ignoredrole list"
+  },
+  {
+    "name": "logs",
+    "aliase": [],
+    "category": "config",
+    "defer": false,
+    "options": [
+      {
+        "name": "add",
+        "description": "Associé un salon à un évènement.",
+        "type": 7,
+        "required": false
+      },
+      {
+        "name": "remove",
+        "description": "Désassocié un salon de logs.",
+        "type": 7,
+        "required": false
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": true,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/config/logs.js",
+    "desc": "Cette commande permet de modifier les paramètres des logs du serveur.",
+    "use": "=logs\n=logs list\n=logs add <channel>\n=logs remove <event>"
+  },
+  {
+    "name": "staffrole",
+    "aliase": [],
+    "category": "config",
+    "defer": false,
+    "options": [
+      {
+        "name": "add",
+        "description": "Ajouté un role de modération à ignoré.",
+        "type": 8,
+        "required": false
+      },
+      {
+        "name": "remove",
+        "description": "Retiré un role de modération de la liste.",
+        "type": 8,
+        "required": false
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": true,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/config/staffrole.js",
+    "desc": "Cette commande te permet de gérer les rôles de modération.",
+    "use": "=staffrole add <channel>\n=staffrole remove <channel>\n=staffrole list"
+  },
+  {
+    "name": "blacklist",
+    "aliase": ["bl"],
+    "category": "dev",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/blacklist.js",
+    "desc": "Cette commande est le diable en personne.",
+    "use": "=blacklist add <user> <reason>\n=blacklist remove <user>\n=blacklist see <user>\n=blacklist list"
+  },
+  {
+    "name": "eval",
+    "aliase": ["e"],
+    "category": "dev",
+    "defer": false,
+    "options": [
+      {
+        "name": "code",
+        "description": "Le code a executer.",
+        "type": 3,
+        "required": true,
+        "full": true
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/eval.js",
+    "desc": null,
+    "use": null
+  },
+  {
+    "name": "maintenance",
+    "aliase": [],
+    "category": "dev",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/maintenance.js",
+    "desc": null,
+    "use": null
+  },
+  {
+    "name": "reload",
+    "aliase": ["restart"],
+    "category": "dev",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/reload.js",
+    "desc": null,
+    "use": null
+  },
+  {
+    "name": "reloadcommand",
+    "aliase": ["rc"],
+    "category": "dev",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/reloadCommand.js",
+    "desc": null,
+    "use": null
+  },
+  {
+    "name": "save",
+    "aliase": [],
+    "category": "dev",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/save.js",
+    "desc": null,
+    "use": null
+  },
+  {
+    "name": "statut",
+    "aliase": [],
+    "category": "dev",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/statut.js",
+    "desc": null,
+    "use": null
+  },
+  {
+    "name": "test",
+    "aliase": [],
+    "category": "dev",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/dev/test.js",
+    "desc": null,
+    "use": null
+  },
+  {
+    "name": "8ball",
+    "aliase": [],
+    "category": "fun",
+    "defer": false,
+    "options": [
+      {
+        "name": "question",
+        "required": true,
+        "description": "La question à poser à la 8ball",
+        "type": 3
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/8ball.js",
+    "desc": "Les réponses sont magiques en posant une question à Kady avec cette commande :D",
+    "use": "undefinedball <question>"
+  },
+  {
+    "name": "ascii",
+    "aliase": [],
+    "category": "fun",
+    "defer": false,
+    "options": [
+      {
+        "name": "text",
+        "required": true,
+        "description": "Le texte à transformer.",
+        "type": 3
+      },
+      {
+        "name": "color",
+        "required": false,
+        "description": "La couleur du texte souhaitée - Visible sur ordinateur uniquement.",
+        "type": 3
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/ascii.js",
+    "desc": "Cette commande rigolote te permet d'avoir le texte de ton choix en code ASCII, et en bonus, avec la commande slash, tu peux mettre de la couleur :D",
+    "use": "- Mobile :\n=ascii <texte>\n- Desktop :\n/ascii text:<texte> color:<couleur>\n\n/!\\ La couleur doit être en anglais, et les caractères comme \"à\", \"é\" ou \"ç\" ne seront pas compris dans le résultat ( ils n'existent pas en ASCII )\n\nLa couleur est visible uniquement sur ordinateur, cela dépend de Discord."
+  },
+  {
+    "name": "blush",
+    "aliase": ["rougis"],
+    "category": "gifs",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/blush.js",
+    "desc": "Cette commande te permet d'exprimer tes sentiments !",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "emojify",
+    "aliase": [],
+    "category": "fun",
+    "defer": false,
+    "options": [
+      {
+        "name": "texte",
+        "required": true,
+        "description": "Le texte à transformer",
+        "type": 3
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/emojify.js",
+    "desc": "Cette commande te permet de transformer les caractères d'un texte en emojis.",
+    "use": "=emojify <texte>"
+  },
+  {
+    "name": "hug",
+    "aliase": [],
+    "category": "gifs",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/hug.js",
+    "desc": "Cette commande te permet de faire un gros calin à quelqu'un !",
+    "use": "=hug\n=hug <user>"
+  },
+  {
+    "name": "kill",
+    "aliase": [],
+    "category": "gifs",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/kill.js",
+    "desc": "Cette commande te permet de tuer quelqu'un ! ( fictivement en tout cas )",
+    "use": "=kill\n=kill <user>"
+  },
+  {
+    "name": "kiss",
+    "aliase": [],
+    "category": "gifs",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/kiss.js",
+    "desc": "Cette commande te permet de faire un bisous à quelqu'un !",
+    "use": "=kiss\n=kiss <user>"
+  },
+  {
+    "name": "love",
+    "aliase": [],
+    "category": "gifs",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/love.js",
+    "desc": "Cette commande te permet de dire qu'un utilisateur est amoureux de quelqu'un !",
+    "use": "=love\n=love <user>"
+  },
+  {
+    "name": "note",
+    "aliase": ["rate"],
+    "category": "fun",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/note.js",
+    "desc": "Cette commande te donne une note au hasard, seras-tu capable d'avoir 20/20 ?",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "punch",
+    "aliase": [],
+    "category": "gifs",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/punch.js",
+    "desc": "Cette commande te permet de faire un calin à quelqu'un !",
+    "use": "=slap\n=slap <user>"
+  },
+  {
+    "name": "unacceptable",
+    "aliase": [],
+    "category": "fun",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/fun/unacceptable.js",
+    "desc": "Je trouve ca innaceptable...\n\nC'est une commande cachée, félicitation de l'avoir trouvée !",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "avatar",
+    "aliase": ["pp"],
+    "category": "user",
+    "defer": true,
+    "options": [
+      {
+        "name": "user",
+        "description": "L'utilisateur dont vous voulez voir la photo de profile.",
+        "type": 6,
+        "required": false
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": true,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/avatar.js",
+    "desc": "Cette commande permet d'avoir l'avatar de quelqu'un !",
+    "use": "=avatar (user ?)"
+  },
+  {
+    "name": "bot",
+    "aliase": ["kady"],
+    "category": "info",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/bot.js",
+    "desc": "Cette commande te permet d'avoir des informations sur moi.",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "help",
+    "aliase": ["h"],
+    "category": "info",
+    "defer": false,
+    "options": [
+      {
+        "name": "command",
+        "description": "Si tu as une commande à chercher.",
+        "required": false,
+        "type": 3
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/help.js",
+    "desc": "Rien de mieux pour avoir des informations sur une commande !",
+    "use": "=help\n=help [commande]"
+  },
+  {
+    "name": "invite",
+    "aliase": [],
+    "category": "info",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/invite.js",
+    "desc": "Invite moi maintenant !",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "music",
+    "aliase": ["musique", "skip", "play", "seek", "nowplaying", "np"],
+    "category": "info",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/music.js",
+    "desc": "Cette commande te permet d'avoir un bot de musique !",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "patch",
+    "aliase": [],
+    "category": "info",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/patch.js",
+    "desc": "Cette commande te permet d'avoir la liste des derniers patchs de Kady.",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "ping",
+    "aliase": [],
+    "category": "info",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/ping.js",
+    "desc": "Cette commande te permet d'avoir ma latence !",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "roleinfo",
+    "aliase": ["role"],
+    "category": "info",
+    "defer": false,
+    "options": [
+      {
+        "name": "role",
+        "description": "Le rôle que tu cherche",
+        "type": 8,
+        "required": true
+      }
+    ],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/roleinfo.js",
+    "desc": "Cette commande te permet d'avoir des informations sur un rôle.",
+    "use": "=roleinfo <role>"
+  },
+  {
+    "name": "support",
+    "aliase": [],
+    "category": "info",
+    "defer": false,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": false,
+      "inProgress": false,
+      "isUserCommand": false,
+      "isSlashCommand": true
+    },
+    "lang": null,
+    "path": "_interactions/cmd/info/support.js",
+    "desc": "Cette commande te permet d'avoir l'invitation vers mon support !",
+    "use": "Aucun argument requis."
+  },
+  {
+    "name": "members",
+    "aliase": [],
+    "category": "tdk",
+    "defer": true,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": false,
+      "dev": true,
+      "inProgress": true,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/tdk/members.js",
+    "desc": "Cette commande te permet de voir les membres de l'alliance The Discord Kingdom",
+    "use": "=members\n=members <guildName | guildId>"
+  },
+  {
+    "name": "userblacklist",
+    "aliase": [],
+    "category": "tdk",
+    "defer": true,
+    "options": [],
+    "system": {
+      "requiredPermission": ["SEND_MESSAGES", "EMBED_LINKS"],
+      "userPermission": [],
+      "staff": true,
+      "dev": false,
+      "inProgress": true,
+      "isUserCommand": false,
+      "isSlashCommand": false
+    },
+    "lang": null,
+    "path": "_interactions/cmd/tdk/userblacklist.js",
+    "desc": "Cette commande permet aux staffs des serveurs de l'alliance The Discord Kingdom d'ajouter des personnes à la blacklist",
+    "use": "=userblacklist add <userId> <reason>\n=userblacklist remove <userId>\n=userblacklist check <userId>"
+  }
+]

@@ -1,6 +1,8 @@
 const { getAllFiles, getObjPath, error404 } = require("./utils.js");
 const { readFile, existsSync } = require("fs");
 const type = require("../allTypes.json");
+const { parse } = require("querystring");
+function fetchArguments(str){ return Object(parse(str)); };
 
 class RouteManager {
   constructor(){
@@ -31,10 +33,11 @@ class RouteManager {
       const route = this.getRoute(url);
       if (!route) return error404(req, res);
       else {
+        
         try {
           const contentType = (Object.entries(type).map(t => t[1].includes(url.match(/\.([A-Za-z0-9\.]+)$/gm)?.[0]?.slice(1)) ? t[0] : false).filter(Boolean)[0] ?? "text/html")
           res.setHeader("Content-Type", contentType)
-          route.exec(req, res);
+          route.exec(req, res, fetchArguments(url.replace(/(?:\/[a-zA-Z0-9_]+)+\?((?:&?[a-zA-Z0-9_]+=[^\s&]+)+)/, "$1")));
           console.log(`[ \x1b[1;32mWebSite\x1b[0m ] \x1b[33m${req.socket.remoteAddress}\x1b[0m - \x1b[34m${req.method}\x1b[0m \x1b[36m${res.statusCode}\x1b[0m -- \x1b[35m${req.url}\x1b[0m`);
         } catch(err) {
           console.log(err);

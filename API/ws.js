@@ -7,6 +7,7 @@ class WebSocketAPI {
     this._Client = global["client"];
 
     this.client = new WebSocket.Server({ port: 9000 });
+    this.urlPort = "9000";
     this.client.on("connection", (ws, req, res) => {
       console.log("[WS] Client connected");
       console.log(req.socket.remoteAddress)
@@ -14,17 +15,15 @@ class WebSocketAPI {
       if ([...[...global["database"].users].map(user => user[1]?.ip)].some((ip) => ip == req.socket.remoteAddress)) return ws.terminate();
       Utils.createUser(this.client, req.socket.remoteAddress)
 
-      ws.on("message", (rawData) => {
+      ws.on("message", async(rawData) => {
         console.log("[WS] Client message received");
         const user = [...global["database"].users].filter(user => user[1]?.ip == req.socket.remoteAddress)[0];
-        console.log(user)
         if (!user || !global["database"].users.has(user[0])) return ws.send(JSON.stringify(({"error": "User not found", "state": "403 forbidden"}))) && ws.terminate();
-        console.log(rawData.toString("utf-8"));
         try {
           const data = JSON.parse(rawData.toString("utf-8"));
-          console.log(data);
+          const dataToSend = await require("./WsParser")(data);
 
-          ws.send(JSON.stringify({ "state": "200 ok", "data": data }));
+          ws.send(JSON.stringify(dataToSend));
         } catch(err) {
           console.log("an error as occured")
           console.log(err)

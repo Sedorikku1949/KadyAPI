@@ -1,4 +1,18 @@
-console.log("blep")
+
+/* UTILS */
+
+
+function getValueType(value){
+  if ([null, undefined].some((e) => value == e)) return String(value).toLowerCase();
+  else return(value.constructor.name.toLowerCase());
+};
+
+
+
+
+
+
+/* LIGHTBOX */
 
 let lightBoxOpened = false;
 let lightBoxOptions = null;
@@ -56,3 +70,71 @@ function closeLightbox(){
   document.getElementById("lightbox-container").innerHTML = "";
   return true;
 }
+
+
+
+
+
+
+
+
+
+/* NAVBAR */
+
+function openNavBar(){
+  document.getElementById("navbar-section").classList.remove("navbar-inactive");
+  document.getElementById("navbar-section").classList.add("navbar-active");
+  document.getElementById("main").style["display"] = "none";
+}
+
+function closeNavBar(){
+  document.getElementById("navbar-section").classList.remove("navbar-active");
+  document.getElementById("navbar-section").classList.add("navbar-inactive");
+  document.getElementById("main").style["display"] = "block";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* NOTIFICATION */
+
+const lastNotification = null;
+
+function parseNotifTheme(obj){
+  switch(obj.theme){
+    case "success":
+      return ({ color: "#42be65", title: obj.title || "Succès", message: obj.message, duration: obj.duration || -1, });
+    case "error":
+      return ({ color: "#fa4d56", title: obj.title || "Erreur", message: obj.message, duration: obj.duration || -1, });
+    case "warning":
+      return ({ color: "#f1c21b", title: obj.title || "Attention", message: obj.message, duration: obj.duration || -1, });
+    case "info":
+      return ({ color: "#4589ff", title: obj.title || "Information", message: obj.message, duration: obj.duration || -1, });
+    default:
+      return ({ color: "#4589ff", title: obj.title || "Information", message: obj.message, duration: obj.duration || -1, });
+  }
+}
+
+function createNotification(obj){
+  if (getValueType(obj) !== "object") throw new Error("Invalid object was provided");
+  if ((!obj.title && !obj.type) || !obj.message || !obj.type) throw new Error("Invalid object was provided");
+  if (!document.getElementById("notification-container")) document.getElementsByTagName("body")[0].innerHTML += "<div id='notification-container'></div>";
+  const container = document.getElementById("notification-container");
+  const notifOptions = parseNotifTheme(obj);
+  lastNotification = notifOptions;
+}
+
+function closeNotification(id){}

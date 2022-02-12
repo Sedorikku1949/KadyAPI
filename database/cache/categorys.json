@@ -1,0 +1,10 @@
+[
+  { "name": "Utilisateur", "defaultName": "user" },
+  { "name": "Modération", "defaultName": "moderation" },
+  { "name": "Information", "defaultName": "info" },
+  { "name": "Outils", "defaultName": "utils" },
+  { "name": "Configuration", "defaultName": "config" },
+  { "name": "The Discord Kingdom", "defaultName": "tdk" },
+  { "name": "Fun", "defaultName": "fun" },
+  { "name": "Gifs", "defaultName": "gifs" }
+]

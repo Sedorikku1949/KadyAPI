@@ -14,6 +14,15 @@ module.exports = {
     res.setHeader("Content-Type", "text/html");
     res.end(readFileSync("views/code/404.html", "utf8"));
   },
+  isLogged: function(req, res){
+    const user = database.auth[req.socket.remoteAddress];
+    if (user && (user.timestamp + 24*60*60*1000) > Date.now()) return true;
+    else return false;
+  },
+  getValueType: function getValueType(value){
+    if ([null, undefined].some((e) => value == e)) return String(value).toLowerCase();
+    else return(value.constructor.name.toLowerCase());
+  },
   getUrlPath: function getUrlPath(url){
     return url.replace(/((?:(?:\/[a-zA-Z0-9]+\/?)+)|\/)\??(?:(?:&?[a-zA-Z0-9_]+=[^&\s]+)+)?$/, "$1");
   },

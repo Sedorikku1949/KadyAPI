@@ -1,0 +1,163 @@
+main {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 135px 0px 48px 0px;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+}
+
+/* PROFILE BOX */
+
+#profile {
+  margin: auto;
+  padding: 5px;
+  width: calc(81% - (5px*2));
+  height: 200px;
+  background-color: var(--second-color);
+  border-radius: 5px;
+  display: flex;
+}
+
+#profile img {
+  height: calc(100% - (15px*2));
+  width: auto;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+#profile-info {
+  margin: 20px;
+  padding: 5px 5px 5px 20px;
+  width: calc(100% - (150px + 20px + 20px));
+  height: calc(100% - (20px*2));
+  background-color: var(--third-color-light);
+  border-radius: 5px;
+}
+
+#profile-name {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+#profile-name img {
+  height: 35px !important;
+  width: auto !important;
+}
+
+.user-badge {
+  padding: 10px;
+  background-color: var(--second-color);
+  border-radius: 2px;
+}
+
+.soon {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  background-color: var(--fourth-color-light);
+  max-width: 700px;
+}
+
+.soon p {
+  color: var(--third-color-light) !important;
+} 
+
+.soon img {
+  height: 22px !important;
+  width: auto !important;
+}
+
+/* GUILDS BOX */
+
+#guilds {
+  margin: 25px auto;
+  width: calc(81% - (5px*2));
+  height: auto;
+  background-color: var(--second-color);
+  border-radius: 5px;
+}
+
+#guilds-head {
+  padding: 5px;
+  padding-left: 50px;
+  display: inline-block;
+  align-items: center;
+  text-align: left;
+  width: calc(100% - 55px);
+  height: 80px;
+  background-color: var(--main-theme-darker);
+  border-radius: 5px 5px 0px 0px;
+}
+
+#guilds-head h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#guilds-head p {
+  margin-top: 0px;
+  margin-left: 20px;
+  color: var(--fiveth-color-light);
+}
+
+#guilds-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 25px 5px;
+  width: calc(100% - (5px*2));
+  height: auto
+}
+
+#guilds-list a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+.guild-box {
+  margin: 10px 10px 50px 10px;
+  padding: 10px 5px;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 270px;
+  height: auto;
+  border-radius: 5px;
+  transition: all 0.15s ease;
+}
+
+.guild-box:hover {
+  background-color: var(--main-color);
+  transition: all 0.15s ease;
+}
+
+.guild-box img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: auto 30px 1em 30px;
+}
+
+#help-perms {
+  margin: 55px auto 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#help-perms svg {
+  fill: var(--font-color-dark);
+  margin-right: 10px;
+}
+
+#help-perms p {
+  color: var(--font-color-dark);
+  font-weight: 550;
+}

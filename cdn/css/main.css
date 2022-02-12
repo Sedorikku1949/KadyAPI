@@ -26,6 +26,9 @@ img {
 #main-avatar h2 {
   line-height: 1.2rem;
   color: var(--font-color-light-dark);
+  max-width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #container-1 {
@@ -168,12 +171,6 @@ img {
   padding: 5px;
 }
 
-@media screen and (max-width: 1430px) {
-  #container-3 {
-    margin-top: 480px;
-  }
-}
-
 #container-3 #why-container {
   align-items: center;
   text-align: center;
@@ -261,4 +258,30 @@ img {
   background-color: var(--main-theme-darker);
   color: rgb(223, 223, 223);
   transition: background 0.3s ease-in-out, color 0.2s ease-in-out;
+}
+
+@media (max-width: 1278px) {
+  #main-avatar h2 {
+    line-height: 1.9rem;
+  }
+  #container-2 {
+    margin-top: 300px !important;
+  }
+  #main-avatar #buttons a {
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+  #main-avatar #buttons a:first-child {
+    margin-left: 25px;
+  }
+  #main-avatar #buttons a:last-child {
+    margin-right: 25px;
+  }
+  #container-2 div:last-child {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  #container-3 {
+    margin-top: 575px;
+  }
 }
