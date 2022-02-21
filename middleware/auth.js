@@ -31,14 +31,12 @@ module.exports = {
       params.set('grant_type', 'authorization_code');
 			params.set('code', query.code);
 			params.set('redirect_uri', getCallbackURl());
-      console.log(`${database.cache.get("client")?.id}:${database.cache.get("client")?.secret}`)
       let callbackRes = await fetch('https://discord.com/api/oauth2/token', {
 				method: 'POST', body: params.toString(),
 				headers: { Authorization: `Basic ${base64(`${database.cache.get("client")?.id}:${database.cache.get("client")?.secret}`)}`, 'Content-Type': 'application/x-www-form-urlencoded' }
 			});
       // Fetch tokens (used to fetch user informations)
 			const tokens = await callbackRes.json();
-      console.log(tokens);
       // If the code isn't valid
 			if(tokens.error || !tokens.access_token) return redirectToDiscord(req, res);
 			let userData = {
@@ -47,7 +45,6 @@ module.exports = {
 			};
       // test data
       while(!userData.infos || !userData.guilds){
-        console.log("fetch")
         // User infos 
         if(!userData.infos){
           response = await fetch('http://discordapp.com/api/users/@me', { method: 'GET', headers: { Authorization: `Bearer ${tokens.access_token}` } });
@@ -70,8 +67,9 @@ module.exports = {
           user: userData.infos,
           guilds: userData.guilds
             .filter(({ permissions_new }) => new Permissions(permissions_new).has("MANAGE_GUILD"))
+            .sort((a,b) => a.memberCount - b.memberCount)
             .map(({ id, name, icon, permissions_new }) => ({ permissions_new, id, name, icon: icon ? `https://cdn.discordapp.com/icons/${id}/${icon}.png?size=1024` : null }))
-            .sort((a,b) => (new Permissions(a.permissions_new).has("MANAGE_GUILD") ? -1 : 1)),
+            .sort((a,b) => (new Permissions(b.permissions_new).has("MANAGE_GUILD") ? -1 : 1)),
           requestData: tokens
         },
         timestamp: Date.now()

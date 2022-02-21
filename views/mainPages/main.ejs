@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kady</title>
-    <!-- LOCAL FILES TAGS -->
-    <link rel="stylesheet" href="/cdn/css/main.css">
     <!-- PUBLIC FILES TAGS -->
     <%- header %>
+    <!-- LOCAL FILES TAGS -->
+    <title>Kady</title>
+    <link rel="stylesheet" href="/cdn/css/main.css">
   </head>
   <body>
     <main id="main">
@@ -108,16 +108,91 @@
         <img style="right:25px;" class="lightbox-arrow" src="/cdn/img/arrowRight.png" draggable="false" />
       </div>
     </div>
-    <div id='notification' style="display: none;">
-      <div class="notification-box error" style="bottom: 10px; right: 10px;">
-        <div class="error-border"></div>
 
-        <div class="notif-body">
-          <svg class="error" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"></path><path d="M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z" data-icon-path="inner-path" opacity="0"></path><title>error icon</title></svg>
+    <div id="notifications-container">
+
+      <!-- DEFAULT -->
+      <!-- <div class="notification notification-default success">
+        <div class="notification-body">
+          <p>Une mise à jour a été publiée</p>
+          <div class="cross" onclick="closeNotification()"></div>
         </div>
-        
       </div>
+      <div class="notification notification-default danger">
+        <div class="notification-body">
+          <p>Une mise à jour a été publiée</p>
+          <div class="cross" onclick="closeNotification()"></div>
+        </div>
+      </div>
+      <div class="notification notification-default error">
+        <div class="notification-body">
+          <p>Une mise à jour a été publiée</p>
+          <div class="cross" onclick="closeNotification()"></div>
+        </div>
+      </div>
+      <div class="notification notification-default info">
+        <div class="notification-body">
+          <p>Une mise à jour a été publiée</p>
+          <div class="cross" onclick="closeNotification()"></div>
+        </div>
+      </div> -->
+
+      <!-- ICONS -->
+      <!-- 
+      <div class="notification icon-notification success">
+        <div class="notification-header">
+          
+          <div class="cross" onclick="closeNotification()"></div>
+        </div>
+        <div class="notification-body">
+          <p>Mise à jour avec succès</p>
+        </div>
+      </div>
+      <div class="notification icon-notification danger">
+        <div class="notification-header">
+          
+          <div class="cross" onclick="closeNotification()"></div>
+        </div>
+        <div class="notification-body">
+          <p>Mise à jour avec succès</p>
+        </div>
+      </div>
+      <div class="notification icon-notification error">
+        <div class="notification-header">
+          
+          <div class="cross" onclick="closeNotification()"></div>
+        </div>
+        <div class="notification-body">
+          <p>Mise à jour avec succès</p>
+        </div>
+      </div>
+      <div class="notification icon-notification info">
+        <div class="notification-header">
+          
+          <div class="cross" onclick="closeNotification()"></div>
+        </div>
+        <div class="notification-body">
+          <p>Mise à jour avec succès</p>
+        </div>
+      </div> -->
+
+      <!-- MODAL -->
+      <!--<div class="notification notification-modal">
+        <svg style="color: rgb(231,76,60)" width="48" height="48" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        <div class="notification-body">
+          <h3>Quitté la page ?</h3>
+          <p>En rechargeant la page ou en changeant de page, vous perdrez toutes les modifications avec aucune possibilité de revenir en arrière.</p>
+          <div class="modals-buttons">
+            
+            <button class="btn confirm">Confirm</button>
+          </div>
+        </div>
+      </div>-->
+
     </div>
+    
   </body>
 </html>
 
